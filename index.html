@@ -85,5 +85,65 @@
       if (service) service.value = link.dataset.service;
     }));
   </script>
+
+  <script>
+    (() => {
+      const dict = {
+        "आपके business की digital growth, एक सही strategy के साथ":"Digital growth for your business, with the right strategy",
+        "Let’s talk ↗":"Let's talk ↗","हमारे बारे में":"About Us","Project शुरू करें ↗":"Start a Project ↗",
+        "आपका business,":"Your business,","अब ":"now ","अगले level":"the next level","आपके business की digital growth, एक सही strategy के साथ":"Digital growth for your business, with the right strategy",
+        "हम smart digital strategy, creative design और performance marketing से आपके brand को online पहचान बनाने में मदद करते हैं।":"We help your brand build an online presence with smart digital strategy, creative design, and performance marketing.",
+        "अपना project शुरू करें ↗":"Start your project ↗","हमारी services देखें ↓":"Explore our services ↓","आपके business के लिए":"Complete digital solutions","complete digital solutions.":"for your business.",
+        "चाहे शुरुआत करनी हो या आगे बढ़ना हो — सही tools और clear strategy के साथ आपका digital presence मजबूत बनाते हैं।":"From getting started to scaling up, we strengthen your digital presence with the right tools and a clear strategy.",
+        "हम smart digital strategy, creative design और performance marketing से आपके brand को online पहचान बनाने में मदद करते हैं।":"We help your brand build an online presence with smart digital strategy, creative design, and performance marketing.",
+        "आपके business को":"Your business,","आगे बढ़ाते हैं.":"let's move forward.","सिर्फ online दिखना नहीं,":"Being online isn't enough,","याद रहना ज़रूरी है.":"being remembered matters.",
+        "हम आपके business को समझकर digital marketing, design और content को एक दिशा में लाने पर ध्यान देते हैं। हमारा उद्देश्य है साफ communication, practical planning और आपके goals के हिसाब से काम।":"We align digital marketing, design, and content around your business goals—with clear communication and practical planning.",
+        "आपकी जरूरत के अनुसार":"Tailored to your needs","आपकी जरूरत समझने से लेकर सही solution तय करने तक — शुरुआत बातचीत से होती है।":"From understanding your needs to choosing the right solution, it starts with a conversation.",
+        "आपकी जरूरत बताइए। हमारी team आपकी enquiry देखकर आगे की प्रक्रिया के लिए संपर्क कर सकती है।":"Tell us what you need. Our team can review your enquiry and contact you about next steps.",
+        "आइए, आपके business को":"Let's take your business","आगे बढ़ाते हैं.":"forward.","अपने project के बारे में बताएँ":"Tell us about your project","आपको कौन-सी service चाहिए? *":"Which service do you need? *",
+        "आपका नाम *":"Your name *","मोबाइल नंबर *":"Mobile number *","Business / brand का नाम":"Business / brand name",
+        "आपको किस तरह की मदद चाहिए? *":"What kind of help do you need? *","Monthly marketing budget (वैकल्पिक)":"Monthly marketing budget (optional)",
+        "अभी तय नहीं":"Not decided yet","Enquiry भेजें ↗":"Send enquiry ↗","* वाले fields भरना जरूरी है।":"Fields marked * are required.",
+        "अपने business और जरूरत के बारे में बताएँ (कम से कम 10 अक्षर)":"Describe your business and needs (at least 10 characters)",
+        "पूरा नाम":"Full name","10 अंकों का नंबर":"10-digit phone number","आपके business का नाम":"Your business name",
+        "इस service के बारे में":"Learn about this service","हमारी services देखें ↓":"Explore our services ↓","Admin Login ↗":"Admin Login ↗"
+      };
+      const placeholderDict = {
+        "पूरा नाम":"Full name","10 अंकों का नंबर":"10-digit phone number","आपके business का नाम":"Your business name",
+        "अपने business और जरूरत के बारे में बताएँ (कम से कम 10 अक्षर)":"Describe your business and needs (at least 10 characters)"
+      };
+      const originals = new Map();
+      const optionOriginals = new Map();
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('.lang-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.lang === lang);
+          b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+        });
+        document.querySelectorAll('body *').forEach(el => {
+          if (el.children.length === 0 && el.textContent.trim() && !el.closest('.language-switch')) {
+            if (!originals.has(el)) originals.set(el, el.textContent);
+            const original = originals.get(el);
+            const key = original.trim();
+            el.textContent = lang === 'en' ? (dict[key] || original) : original;
+          }
+        });
+        document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+          if (!el.dataset.originalPlaceholder) el.dataset.originalPlaceholder = el.placeholder;
+          const original = el.dataset.originalPlaceholder;
+          el.placeholder = lang === 'en' ? (placeholderDict[original] || original) : original;
+        });
+        document.querySelectorAll('select option').forEach(el => {
+          if (!optionOriginals.has(el)) optionOriginals.set(el, el.textContent);
+          const original = optionOriginals.get(el);
+          const key = original.trim();
+          const opts = {"Social Media Marketing":"Social Media Marketing","Website Design":"Website Design","SEO":"SEO","Google & Meta Ads":"Google & Meta Ads","Logo & Graphic Design":"Logo & Graphic Design","Video Editing":"Video Editing","₹3,000 से कम":"Under ₹3,000","₹3,000–₹10,000":"₹3,000–₹10,000","₹10,000–₹25,000":"₹10,000–₹25,000","₹25,000 से अधिक":"Over ₹25,000"};
+          el.textContent = lang === 'en' ? (opts[key] || dict[key] || original) : original;
+        });
+      }
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+    })();
+  </script>
+
 </body>
 </html>
