@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shivon Digital - डिजिटल मार्केटिंग सेवाओं के लिए ऑनलाइन बुकिंग">
+  <title>Shivon Digital | सेवा बुकिंग</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark">S</span><span>Shivon <b>Digital</b><small>आपका व्यवसाय, हमारी डिजिटल ताकत</small></span></a>
+    <a class="nav-link" href="#booking">बुकिंग करें</a>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">DIGITAL GROWTH FOR YOUR BUSINESS</span>
+        <h1>अपने व्यवसाय को<br><em>डिजिटल दुनिया में</em> आगे बढ़ाएँ</h1>
+        <p>सोशल मीडिया पर बेहतर पहचान, सही ग्राहकों तक पहुँच और आपके व्यवसाय के लिए डिजिटल मार्केटिंग समाधान।</p>
+        <a class="button primary" href="#booking">सेवा बुक करें <span>↗</span></a>
+        <div class="trust-row"><span>✓ मोबाइल-फ्रेंडली</span><span>✓ सीधे वेबसाइट से बुकिंग</span></div>
+      </div>
+      <div class="hero-art" aria-label="डिजिटल मार्केटिंग इलस्ट्रेशन">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="growth-card"><span class="chart-icon">↗</span><strong>Digital Growth</strong><small>Reach · Content · Strategy</small><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="bubble bubble-a">◎ Social Media</div><div class="bubble bubble-b">＋ More Reach</div>
+        <div class="hero-leaf">S</div>
+      </div>
+    </section>
+    <section class="services section">
+      <div class="section-heading"><span class="eyebrow">OUR SERVICES</span><h2>हमारी सेवाएँ</h2><p>अभी शुरुआत सोशल मीडिया मार्केटिंग से करें। आगे दूसरी सेवाएँ भी जोड़ सकते हैं।</p></div>
+      <article class="service-card selected"><div class="service-icon">◉</div><h3>Social Media Marketing</h3><p>Facebook और Instagram पर कंटेंट, पोस्टिंग और आपके ब्रांड की ऑनलाइन पहचान बढ़ाने की योजना।</p><span class="selected-tag">बुकिंग के लिए उपलब्ध</span></article>
+    </section>
+    <section id="booking" class="booking-section">
+      <div class="booking-intro"><span class="eyebrow">ONLINE BOOKING</span><h2>अपनी सेवा बुक करें</h2><p>फॉर्म भरें। आपकी जानकारी सुरक्षित रूप से दर्ज करने के लिए डेटाबेस कनेक्शन आवश्यक है। इस प्रोटोटाइप में कनेक्शन सेट होने तक बुकिंग जमा नहीं होगी।</p>
+        <div class="privacy-note"><span>🔒</span><div><b>आपकी जानकारी</b><small>केवल जरूरी जानकारी माँगी जाती है। अपना पासवर्ड, OTP या बैंक जानकारी न भरें।</small></div></div>
+      </div>
+      <form id="booking-form" class="booking-form">
+        <div class="form-title"><span class="step">01</span><div><h3>बुकिंग विवरण</h3><p>सभी * वाले फ़ील्ड जरूरी हैं।</p></div></div>
+        <label for="service">चुनी गई सेवा *</label>
+        <select id="service" name="service" required><option value="Social Media Marketing" selected>Social Media Marketing</option></select>
+        <div class="form-grid">
+          <div><label for="name">आपका नाम *</label><input id="name" name="name" autocomplete="name" minlength="2" maxlength="80" required placeholder="पूरा नाम"></div>
+          <div><label for="phone">मोबाइल नंबर *</label><input id="phone" name="phone" inputmode="tel" autocomplete="tel" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10 अंकों का नंबर"><small>भारत का 10 अंकों का मोबाइल नंबर</small></div>
+        </div>
+        <label for="business">व्यवसाय का नाम</label><input id="business" name="business" maxlength="120" placeholder="जैसे दुकान, क्लिनिक, एजेंसी">
+        <label for="details">आपको किस तरह की मदद चाहिए? *</label><textarea id="details" name="details" required minlength="10" maxlength="1500" rows="4" placeholder="अपने व्यवसाय और जरूरत के बारे में बताएं (कम से कम 10 अक्षर)"></textarea>
+        <label for="budget">मासिक मार्केटिंग बजट (वैकल्पिक)</label><select id="budget" name="budget"><option value="">अभी तय नहीं</option><option>₹3,000 से कम</option><option>₹3,000–₹10,000</option><option>₹10,000–₹25,000</option><option>₹25,000 से अधिक</option></select>
+        <label class="consent"><input type="checkbox" id="consent" required><span>मैं सहमत हूँ कि मेरी दी गई जानकारी का उपयोग इस बुकिंग के संबंध में संपर्क करने के लिए किया जाए। *</span></label>
+        <button class="button primary submit-button" type="submit">बुकिंग भेजें <span>→</span></button>
+        <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        <p class="form-footnote">यह डेमो अभी लाइव सेवा नहीं है। सफल बुकिंग के बाद बुकिंग ID दिखाई जाएगी।</p>
+      </form>
+    </section>
+  </main>
+  <footer><a class="brand footer-brand" href="./"><span class="brand-mark">S</span><span>Shivon <b>Digital</b><small>आपका व्यवसाय, हमारी डिजिटल ताकत</small></span></a><p>© <span id="year"></span> Shivon Digital · Prototype</p><a href="admin.html">एडमिन लॉगिन</a></footer>
+</body>
+</html>

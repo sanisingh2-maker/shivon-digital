@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shivon Digital | Admin</title><link rel="stylesheet" href="style.css"><script type="module" src="admin.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./"><span class="brand-mark">S</span><span>Shivon <b>Digital</b><small>एडमिन पैनल</small></span></a><a class="nav-link" href="./">वेबसाइट पर लौटें</a></header>
+<main class="booking-section" style="min-height:75vh;display:block">
+  <div class="booking-form" style="max-width:900px;margin:auto">
+    <span class="eyebrow">PRIVATE ADMIN AREA</span><h2>बुकिंग प्रबंधन</h2>
+    <p>एडमिन पैनल देखने के लिए Supabase Auth से लॉगिन करें। पहले Dashboard में एडमिन यूज़र बनाना जरूरी है।</p>
+    <form id="login-form">
+      <label for="email">एडमिन ईमेल</label><input id="email" type="email" autocomplete="username" required placeholder="admin@example.com">
+      <label for="password">पासवर्ड</label><input id="password" type="password" autocomplete="current-password" required placeholder="पासवर्ड">
+      <button class="button primary submit-button" type="submit">सुरक्षित लॉगिन</button>
+    </form>
+    <p id="admin-status" class="status" role="status" aria-live="polite"></p>
+    <div id="admin-content" hidden>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3>बुकिंग सूची</h3><button id="logout" class="nav-link" type="button">लॉगआउट</button></div>
+      <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr><th style="text-align:left;padding:10px">ID / तारीख</th><th style="text-align:left;padding:10px">ग्राहक</th><th style="text-align:left;padding:10px">संपर्क</th><th style="text-align:left;padding:10px">जरूरत</th><th style="text-align:left;padding:10px">स्थिति</th></tr></thead><tbody id="booking-rows"></tbody></table></div>
+    </div>
+  </div>
+</main>
+<footer><span>Shivon Digital · Admin Prototype</span><a href="./">मुख्य वेबसाइट</a></footer>
+</body>
+</html>
